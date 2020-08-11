@@ -1,0 +1,39 @@
+.wrap {
+    height: 80px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 40px 90px 40px 90px;
+}
+
+.socialCta {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 40%;
+}
+
+
+@media (max-width: 1500px) {
+    .wrap {
+        height: 25px;
+    }   
+    
+    .socialCta {
+        flex-direction: row-reverse;
+    }
+  }
+
+
+  
+@media (max-width: 500px) {
+    .wrap {
+        height: 50px;
+        padding: 15px 5px 0px;
+    }   
+    
+    .socialCta {
+        flex-direction: row-reverse;
+    }
+  }

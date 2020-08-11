@@ -1,0 +1,57 @@
+.wrap {
+    height: 50px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: white;
+    border: 3px solid #CC0000;
+    color: #CC0000;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all .4s;
+}
+.wrap:hover{
+    background:  #CC0000;
+    color: white;
+}
+
+.wrap p {
+    padding-top: .8em;
+}
+
+input[type=submit] {
+    width: 100% !important;
+    height: 50px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: white;
+    border: 3px solid #CC0000;
+    color: #CC0000;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all .4s;
+}
+input[type=submit]:hover{
+    background:  #CC0000;
+    color: white;
+}
+
+input[type=submit] p {
+    padding-top: .8em;
+}
+
+
+
+@media (max-width: 1500px) {
+    .wrap {
+        height: 35px;
+        font-size: 12px;
+    }   
+
+    input[type=submit] {
+        height: 35px;
+        font-size: 12px;
+        width: 100% !important;
+    }
+  }

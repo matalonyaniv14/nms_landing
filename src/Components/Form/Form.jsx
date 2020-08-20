@@ -5,6 +5,9 @@ import Inputs from './Inputs.jsx';
 
 
 const Form = () => {
+ 
+
+
     return (
         <div className={ style.wrap }>
             <div className={ style.content }>
@@ -13,7 +16,7 @@ const Form = () => {
                 </p>
             </div>
             <div>
-                <form field-count="3"  action="https://subscribe.responder.co.il/" method="post"  noValidate="novalidate"> 
+                <form>
                     <Inputs />
                 </form>
             </div>  

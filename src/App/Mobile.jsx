@@ -24,7 +24,9 @@ function Mobile() {
             <div style={{ height: 'auto' , backgroundColor: 'rgba(204, 0, 0, 0.1)', padding: '45px', fontSize: '20px', fontWeight: 'bold', marginBottom: '30px'}} >
                 <p>Leave your information now and you will be on your way to success</p>
             </div>
-            <Inputs />
+            <form>
+              <Inputs />
+            </form>
         </div>
 
         <Footer />

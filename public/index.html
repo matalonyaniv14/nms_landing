@@ -120,6 +120,7 @@
         request = gapi.client.sheets.spreadsheets.values.append(params,JSON.stringify({values: [data]}))
         request.then(function(response) {
           console.log(response.result);
+          window.location = `/sign-up?name=${ data[0] }`;
       }, function(reason) {
           console.error('error: ' + reason.result.error.message);
       });

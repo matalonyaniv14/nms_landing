@@ -48,7 +48,7 @@ const Inputs = ( ) => {
                 type="text" 
                 placeholder='Phone Number'
                 required/>
-            <div style={{ marginTop: '50px', width: 'auto' }}>
+            <div style={{ marginTop: '20px', width: 'auto' }}>
                    <input type="submit" value='Submit Now' />
             </div>
         </div>

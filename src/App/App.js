@@ -4,7 +4,10 @@ import Tablet from './Tablet';
 import Mobile from './Mobile';
 import { isTablet, isMobile } from '../Utils/matchDevice.jsx'
 
+
+
 function App() {
+
   if ( isTablet() ) {
     return ( <> <Tablet /> </>);
   }

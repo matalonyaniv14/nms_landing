@@ -56,7 +56,9 @@ const Inputs = ( ) => {
 }
 
 export default Inputs;
+// url: 'http://api.responder.co.il/main/lists'
 
-// name="fields[subscribers_name]"
-// name="fields[subscribers_email]"
-// name="fields[subscribers_phone]"
+//" Authorization: c_key=50D173C926F5C7995992943558F37DDD,c_secret=C4BEE5F7600F09A42154DD7F5FBA91FA,u_key=E7879AED7C0FD4643539FF65DC78FFE6,u_secret=ADFD7E96D1838978ACDA79DC406B7A77,nonce=3153910c36975aa44fe770be72d3bfd3,timestamp=1597684744"
+
+
+// curl -H "Authorization: c_key=50D173C926F5C7995992943558F37DDD,c_secret=c4ac6287405432d4f1a78e33b21ca5e7,u_key=D37995392DF7E26EA4CD224D2053E32F,u_secret=0c089de9b54ff2def6d6c464d9cb1948,nonce=3153910c36975aa44fe770be72d3bfd991,timestamp=1597848585"  http://api.responder.co.il/main/lists?list_ids=795689

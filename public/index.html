@@ -95,11 +95,9 @@ src="https://www.facebook.com/tr?id=781810331934176&ev=PageView&noscript=1"
           discoveryDocs: DISCOVERY_DOCS,
           scope: SCOPES
         }).then(function () {
-          // Listen for sign-in state changes.
           gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
           updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
         }, function(error) {
-          appendPre(JSON.stringify(error, null, 2));
         });
       }
 
@@ -111,41 +109,11 @@ src="https://www.facebook.com/tr?id=781810331934176&ev=PageView&noscript=1"
         if (isSignedIn) {
           console.log('sign in')
         } else {
-          authorizeButton.style.display = 'block';
-          signoutButton.style.display = 'none';
+          
         }
       }
 
-      /**
-       *  Sign in the user upon button click.
-       */
-      function handleAuthClick(event) {
-        gapi.auth2.getAuthInstance().signIn();
-      }
 
-      /**
-       *  Sign out the user upon button click.
-       */
-      function handleSignoutClick(event) {
-        gapi.auth2.getAuthInstance().signOut();
-      }
-
-      /**
-       * Append a pre element to the body containing the given message
-       * as its text node. Used to display the results of the API call.
-       *
-       * @param {string} message Text to be placed in pre element.
-       */
-      function appendPre(message) {
-        var pre = document.getElementById('content');
-        var textContent = document.createTextNode(message + '\n');
-        pre.appendChild(textContent);
-      }
-
-      /**
-       * Print the names and majors of students in a sample spreadsheet:
-       * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
-       */
 
       const postdata = ( data ) => {
         console.log( 'postData', data )
@@ -157,7 +125,7 @@ src="https://www.facebook.com/tr?id=781810331934176&ev=PageView&noscript=1"
         request = gapi.client.sheets.spreadsheets.values.append(params,JSON.stringify({values: [data]}))
         request.then(function(response) {
           console.log(response.result);
-          window.location = `/sign-up?name=${ data[0] }`;
+          window.location.href = `/sign-up?name=${ data[0] }`;
       }, function(reason) {
           console.error('error: ' + reason.result.error.message);
       });

@@ -4,7 +4,6 @@ import Tablet from './Tablet';
 import Mobile from './Mobile';
 import Thanks from '../Components/Thanks/Thanks'
 import { isTablet, isMobile } from '../Utils/matchDevice.jsx'
-
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,7 +13,6 @@ import {
 
 
 function App() {
-
   const handleApp = () => {    
     if ( isTablet() ) {
       return ( <> <Tablet /> </>);

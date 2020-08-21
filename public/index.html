@@ -69,69 +69,6 @@ src="https://www.facebook.com/tr?id=781810331934176&ev=PageView&noscript=1"
     
 
     <script type="text/javascript">
-      // Array of API discovery doc URLs for APIs used by the quickstart
-      var DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4"];
-
-      // Authorization scopes required by the API; multiple scopes can be
-      // included, separated by spaces.
-      var SCOPES = "https://www.googleapis.com/auth/spreadsheets";
-
-      /**
-       *  On load, called to load the auth2 library and API client library.
-       */
-      function handleClientLoad() {
-        gapi.load('client:auth2', initClient);
-        
-      }
-
-      /**
-       *  Initializes the API client library and sets up sign-in state
-       *  listeners.
-       */
-      function initClient() {
-        gapi.client.init({
-          apiKey: 'AIzaSyCBQaufkIaPF4K1LPgjOBipt50uQdWtlfM',
-          clientId: '53548456602-rg14keeratnrib1u723i0ik892eiqnu0.apps.googleusercontent.com',
-          discoveryDocs: DISCOVERY_DOCS,
-          scope: SCOPES
-        }).then(function () {
-          gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
-          updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-        }, function(error) {
-        });
-      }
-
-      /**
-       *  Called when the signed in status changes, to update the UI
-       *  appropriately. After a sign-in, the API is called.
-       */
-      function updateSigninStatus(isSignedIn) {
-        if (isSignedIn) {
-          console.log('sign in')
-        } else {
-          
-        }
-      }
-
-
-
-      const postdata = ( data ) => {
-        console.log( 'postData', data )
-        const params = {
-          spreadsheetId: '1Ph7ra7QI-U-d8wf4GVKLEI3pjc97ENXKO8JO8F7zZvo', 
-          range: 'A:D',
-          valueInputOption: 'RAW'
-        };
-        request = gapi.client.sheets.spreadsheets.values.append(params,JSON.stringify({values: [data]}))
-        request.then(function(response) {
-          console.log(response.result);
-          window.location.assign(`/sign-up?name=${ data[0] }`);
-      }, function(reason) {
-          console.error('error: ' + reason.result.error.message);
-      });
-      }
-
-
       
       window.onload = () => {
         [...document.querySelectorAll( 'form' )].forEach( ( form ) => {
@@ -141,11 +78,19 @@ src="https://www.facebook.com/tr?id=781810331934176&ev=PageView&noscript=1"
             const inputs = [...elements]
                 .filter( input => input.type === 'text' )
                 .map( input => input.value );
-                
-                inputs.push((new Date).toString());
   
-                postdata( inputs )
-            })
+                [ name,email, phone ] = inputs;
+                fetch(`https://www.mataloncreditsolutions.com/sheets`,{
+                  method: 'post',
+                  headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                  }, 
+                  body: JSON.stringify(inputs)
+                }).then( (_)  => {
+                  window.location.assign(`/sign-up?name=${ name }`);
+                })
+              })
         })
       }
 
@@ -158,3 +103,4 @@ src="https://www.facebook.com/tr?id=781810331934176&ev=PageView&noscript=1"
     </script>
   </body>
 </html>
+

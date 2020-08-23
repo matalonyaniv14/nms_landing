@@ -6,7 +6,7 @@ const Button = ( props ) => {
     const { text, style } = props;
     
     return (
-        <div className={ bStyle.wrap } style={ style }  >
+        <div id='in-touch-btn' className={ bStyle.wrap } style={ style }  >
             <p> { text } </p>
         </div>
     );

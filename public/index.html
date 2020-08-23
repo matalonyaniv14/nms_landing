@@ -46,6 +46,7 @@ src="https://www.facebook.com/tr?id=781810331934176&ev=PageView&noscript=1"
       name="description"
       content="Web site created using create-react-app"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -71,15 +72,28 @@ src="https://www.facebook.com/tr?id=781810331934176&ev=PageView&noscript=1"
     <script type="text/javascript">
       
       window.onload = () => {
+
+        [...document.querySelectorAll('#in-touch-btn')].forEach( ( button ) => {
+              button.addEventListener( 'click', (_) => {
+                  const input = document.querySelector('input[type="text"]');
+                  input.focus();
+              })
+          });
+
+
         [...document.querySelectorAll( 'form' )].forEach( ( form ) => {
           form.addEventListener( 'submit', ( e ) => {
             e.preventDefault();
             const  { elements } = e.target;
+            const submitBtn = [...elements].filter( e => e.type === 'submit' )[0];
+            submitBtn.style.display = 'none';
+            submitBtn.parentElement.innerHTML = '<i class="fa fa-circle-o-notch fa-spin" style="margin: 10px 0px 0px 44%;font-size:24px"></i>'
+      
             const inputs = [...elements]
                 .filter( input => input.type === 'text' )
                 .map( input => input.value );
   
-                [ name,email, phone ] = inputs;
+                [ name, email, phone ] = inputs;
                 fetch(`https://www.mataloncreditsolutions.com/sheets`,{
                   method: 'post',
                   headers: {
@@ -95,11 +109,6 @@ src="https://www.facebook.com/tr?id=781810331934176&ev=PageView&noscript=1"
       }
 
 
-    </script>
-
-    <script async defer src="https://apis.google.com/js/api.js"
-      onload="this.onload=function(){};handleClientLoad()"
-      onreadystatechange="if (this.readyState === 'complete') this.onload()">
     </script>
   </body>
 </html>
